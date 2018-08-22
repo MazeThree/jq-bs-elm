@@ -134,3 +134,13 @@
     border-bottom: 1px solid gray;
 }
 
+/*侧边悬浮按钮*/
+.side-float{
+    position: fixed;
+    width: 4rem;
+    height: 8rem;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 6rem;
+    background-color: #ff5b3b;
+}
