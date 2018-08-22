@@ -1,0 +1,136 @@
+/*头部样式*/
+.header{
+    width: 100%;
+    height: 8rem;
+    padding: 0.5rem 1rem;
+    background-color: #0074e8;
+}
+    #loaction{
+        margin: 0.6rem 0;
+    }
+    #loaction > a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .search{
+        text-align: center;
+    }
+
+  /*活动页  */
+.link-pic{
+    width: 100%;
+    height: 8rem;
+
+    background-color: #007124;
+}
+/*主体*/
+.container{
+    padding: 2rem 1rem 0;
+}
+/*导航栏*/
+.head-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 18rem;
+}
+ .head-nav .flex-items{
+     width: 20%;
+     font-size: 1rem;
+     text-align: center;
+     padding-bottom: 2rem;
+ }
+.head-nav .flex-items a{
+    color: #0f0f0f;
+    text-decoration:none ;
+}
+.head-nav .flex-items a>img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4rem;
+}
+.head-nav .flex-items a>div{
+    margin-top: 1rem;
+}
+
+/*品质套餐、限量抢购*/
+.vip-page{
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 0.2rem;
+    border: 0.2rem solid #ffdb5d;
+    background: -webkit-linear-gradient(left, #ffdb5d, #ffa25d); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #ffdb5d, #ffa25d); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#ffdb5d, #ffa25d); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,#ffdb5d, #ffa25d); /* 标准的语法（必须放在最后）*/
+}
+.vip-page .left>b,.vip-page .right a>b{
+    font-size: 1.5rem;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.box{
+    display: flex;
+    justify-content:space-between;
+    height: 16rem;
+    width: 100%;
+}
+.panic-buy{
+    width: 49.5%;
+    height: 16rem;
+    padding: 1rem 1.5rem;
+    background-color: #0ff2ff;
+}
+.panic-buy a>p{
+    font-size: 1.2rem;
+   margin-top: 0.6rem;
+}
+.panic-buy a>div{
+    width: 60%;
+    height: 50%;
+    background-color: #fff;
+}
+
+.ant-vip{
+    height: 4.5rem;
+    background-color: #d5ffa3;
+}
+
+
+/*推荐商家*/
+.main-box{
+    min-height: 32rem;
+}
+.main-box .box-head{
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+}
+.main-box .box-nav{
+    display: flex;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.main-box .box-nav-fix{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 99;
+}
+.main-box .box-nav .flex-items{
+    flex-grow: 1;
+}
+
+.box-content .content-items{
+    height: 14rem;
+    border-bottom: 1px solid gray;
+}
+
