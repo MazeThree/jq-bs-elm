@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1"/>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+    <meta name="format-detection" content="telephone=no,email=no,address=no"/>
+    <!--适配safari私有meta标签，允许全屏模式浏览，隐藏浏览器导航栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="keywords" content="前端工程师，湖南理工学院，计算机科学,jquery+bootstrap仿制"/>
+    <meta name="description"  content="jq+bs仿制移动端elm"/>
+    <meta name="author" content="吴鹏,1849630277@qqmail.com"/>
+    <title>登陆</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/mine.css">
+
+    <!--公共样式-->
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+<!--logo-->
+<div class="flex-box">
+    <div class="logo">
+        <img src="../pictures/可乐.png" alt="elm" class="center-block">
+        <div>
+          <span>短信登陆</span>
+        </div>
+    </div>
+    <div class="form-content">
+        <form action="../mine/index.html">
+            <section class="form-group">
+                <input type="tel" class="form-control"  maxlength="11" placeholder="手机号">
+                <button type="button" class="btn verify" disabled>获取验证码</button>
+            </section>
+            <section class="form-group">
+                <input type="text" class="form-control" maxlength="9" placeholder="验证码">
+            </section>
+            <section class="form-group">
+                温馨提示:未注册饿了么账号的手机号，登陆时将自动注册，切代表您已同意<a href="#">《用户服务协议》</a>
+            </section>
+            <button type="submit" class="btn btn-success btn-block">登录</button>
+        </form>
+        <a href="#" class="btn btn-block">关于我们</a>
+    </div>
+</div>
+<!--先引入jq其他才会生效-->
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+/*主页-为你推荐*/
+
+.content1{
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 94rem;
+}
+.content1 .flex-items{
+    width: 49%;
+    min-height: 27%;
+    margin-bottom: 1rem;
+    background-color: #ff6759;
+}
+
+
+
+
+/*限时好礼*/
+.content2{
+    height: 24rem;
+    background-color: #4863ff;
+}

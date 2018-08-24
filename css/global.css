@@ -1,12 +1,17 @@
 .heaher{
 	color:#fff;
 }
-
+.container{
+	padding: 2rem 1rem 0;
+	margin-bottom: 4rem;
+	/*background-color: #ecfff0;*/
+}
 
 
 /*底部选项卡*/
 .foot-box{
 	display: flex;
+	display: -webkit-flex; /* Safari */
 	position: fixed;
 	bottom: 0;
 	width: 100%;

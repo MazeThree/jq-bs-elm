@@ -1,0 +1,112 @@
+/*主页头部*/
+.head{
+    width: 100%;
+    height: 8.4rem;
+    padding: 1.2rem 2rem;
+    background: -webkit-linear-gradient(left, #b28bff, #5b25ff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #b28bff, #5b25ff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#b28bff, #5b25ff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,#b28bff, #5b25ff); /* 标准的语法（必须放在最后）*/
+}
+.head a{
+    color: white;
+    text-decoration: none;
+}
+.head-flex{
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+}
+.head-flex>div{
+    width: 4.4rem;
+    height: 4.4rem;
+    flex-grow: 1;
+    line-height: 4.4rem;
+}
+
+.head-pic img{
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 4.4rem;
+    background: #7cffdf;
+}
+.head-flex .head-info{
+    flex-grow: 5;
+}
+.head-flex .head-info>p{
+    height: 1rem;
+    margin-top: -0.5rem;
+    font-size: 1.8rem;
+}
+.head-flex .head-info p>span{
+    font-size: 1rem;
+}
+.head-right{
+    text-align: right;
+}
+
+
+/*头部相关选项*/
+.head-nav .flex-items{
+    height: 6rem;
+    text-align: center;
+    border-bottom: 1px solid silver;
+    border-right: 1px solid silver;
+}
+.head-nav .flex-items>p{
+    height: 1rem;
+    font-size: 1rem;
+
+}
+.head-nav .flex-items p>span{
+    font-size: 2rem;
+}
+
+
+
+
+/*用户登陆页面*/
+.flex-box{
+    /*display: flex;*/
+    width: 100%;
+    height: 100%;
+    padding: 3rem 2rem;
+}
+.logo{
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    /*background-color: #424cff;*/
+}
+.logo>img{
+    width: 14rem;
+    height: 5.6rem;
+}
+.logo>div{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+
+}
+.logo div>span{
+    display: block;
+    width: 6rem;
+    margin: 0 auto;
+    border-bottom: 0.2rem solid blue;
+}
+
+
+/*表单*/
+.form-content{
+    position: relative;
+    margin-top: 1.5rem;
+}
+.verify{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+}
