@@ -19,27 +19,29 @@
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
-<!--logo-->
 <div class="flex-box">
+    <!--logo部分-->
     <div class="logo">
         <img src="../pictures/可乐.png" alt="elm" class="center-block">
         <div>
           <span>短信登陆</span>
         </div>
     </div>
+    <!--表单-->
     <div class="form-content">
+        <!--正常提交表单要加methods-->
         <form action="../mine/index.html">
             <section class="form-group">
-                <input type="tel" class="form-control"  maxlength="11" placeholder="手机号">
-                <button type="button" class="btn verify" disabled>获取验证码</button>
+                <input type="tel" class="form-control tel"  maxlength="11" placeholder="手机号" required="required">
+                <input type="button" class="btn verify disabled" value="获取验证码" onclick="sendMessage()">
             </section>
             <section class="form-group">
-                <input type="text" class="form-control" maxlength="9" placeholder="验证码">
+                <input type="text" class="form-control password" maxlength="9" placeholder="验证码" required="required">
             </section>
             <section class="form-group">
                 温馨提示:未注册饿了么账号的手机号，登陆时将自动注册，切代表您已同意<a href="#">《用户服务协议》</a>
             </section>
-            <button type="submit" class="btn btn-success btn-block">登录</button>
+            <button type="submit" id="submit" class="btn btn-success btn-block">登录</button>
         </form>
         <a href="#" class="btn btn-block">关于我们</a>
     </div>
@@ -47,6 +49,7 @@
 <!--先引入jq其他才会生效-->
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/mine.js"></script>
 
 </body>
 </html>

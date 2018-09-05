@@ -21,9 +21,9 @@ $(document).ready(function(){
         }
     }).trigger("scroll");
     // 活动页轮播图
-    let mySwiper = new Swiper('.link-pic', {
-        autoplay: true,//可选选项，自动滑动
-    });
+    // let mySwiper = new Swiper('.link-pic', {
+    //     autoplay: true,//可选选项，自动滑动
+    // });
 
 
     // 推荐商家下拉加载
