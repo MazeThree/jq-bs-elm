@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once('../php/link.php');
+if($_SESSION['usename']==""){
+    echo "<script>alert('未登录，请先登录');window.location.href='login.html'</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -21,6 +28,11 @@
 </head>
 <body>
 <header>
+<!--最上层公共头-->
+<div class="top"  onclick="javascript:history.back(-1);">
+    <span id="title"></span>
+</div>
+
     <!--头部信息-->
     <div class="head">
         <a href="../mine/user-info.html">
@@ -29,7 +41,8 @@
                     <img src="../pictures/可乐.png" alt="">
                 </div>
                 <div class="head-info">
-                    asdada
+                    <?php echo $_SESSION['usename'] ?>
+                    <span>，超级会员</span>
                 </div>
                 <div class="head-right">></div>
             </div>
@@ -38,7 +51,14 @@
     <!--相关选项-->
     <div class="head-flex head-nav">
         <div class="flex-items">
-            <p><span>0.00</span>元</p>
+            <p><span style="color:blue">
+            <?php
+            if($_SESSION['money']!='')
+            echo $_SESSION['money'];
+            else{
+            echo 0.00;
+            }
+            ?></span>元</p>
             <p>钱包</p>
         </div>
         <div class="flex-items">
@@ -97,6 +117,7 @@
 <!--先引入jq其他才会生效-->
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/global.js"></script>
 
 </body>
 </html>

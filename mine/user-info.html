@@ -19,7 +19,13 @@
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
-<div class="content">
+<!--最上层公共头-->
+<div class="top"  onclick="javascript:history.back(-1);">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    <span id="title"></span>
+</div>
+
+<div class="container">
     <div>头像</div>
     <div>用户名</div>
     <p>账户绑定</p>
@@ -33,6 +39,7 @@
 <!--先引入jq其他才会生效-->
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/global.js"></script>
 
 </body>
 </html>

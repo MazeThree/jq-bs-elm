@@ -1,3 +1,16 @@
+/*顶部公共头*/
+.top{
+	height: 3.5rem;
+	/*background: -webkit-linear-gradient(left, #b28bff, #5b25ff); !* Safari 5.1 - 6.0 *!*/
+	/*background: -o-linear-gradient(right, #b28bff, #5b25ff); !* Opera 11.1 - 12.0 *!*/
+	/*background: -moz-linear-gradient(right,#b28bff, #5b25ff); !* Firefox 3.6 - 15 *!*/
+	/*background: linear-gradient(to right,#b28bff, #5b25ff); !* 标准的语法（必须放在最后）*!*/
+	border-bottom:1px solid silver;
+}
+.top>span{
+	margin: 0 1rem;
+	line-height: 3.5rem;
+}
 .header{
 	color:#fff;
 }

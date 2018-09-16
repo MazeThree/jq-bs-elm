@@ -72,6 +72,8 @@
     /*display: flex;*/
     width: 100%;
     height: 100%;
+    margin: 0 auto;
+    max-width: 400px;
     padding: 3rem 2rem;
 }
 .logo{
@@ -102,7 +104,8 @@
 /*表单*/
 .form-content{
     position: relative;
-    margin-top: 1.5rem;
+    margin:1.5rem auto;
+    max-width: 400px;
 }
 .verify{
     position: absolute;

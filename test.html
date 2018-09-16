@@ -1,118 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--<link rel="stylesheet"  href="css/reset.css" />-->
+    <link rel="stylesheet" href="css/index.css">
+    <style type="text/css">
+        html, body{height: 100%;font-family: "微软雅黑";}
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        a {color: #428bca;text-decoration: none;}
+        a:hover,a:focus {color: #2a6496;text-decoration: underline;}
+        a:focus {outline: thin dotted;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+
+        .padd_40{padding-top: 80px;background: #F5F5F5;overflow-x:hidden;}
+        .a{text-align:center;line-height: 40px;position: fixed;top: 0;left: 0;width: 100%;z-index: 10;border-bottom: 1px #ccc solid; background: #f50;color: #fff;}
+        .tab{display: flex;line-height: 40px;position: fixed;top: 40px;width: 100%;z-index: 10;border-bottom: 1px #ccc solid;}
+        .tab a{width: 33.333333%;background: #fff;text-align: center;}
+        .tab .active{border-bottom: 1px #f50 solid; color: #f50;}
+        .panel{margin: 0;}
+
+        .refreshtip {position: absolute;left: 0;width: 100%;margin: 10px 0;text-align: center;color: #999;}
+        .swiper-container{overflow: visible;}
+        .loadtip { display: block;width: 100%;line-height: 40px; height: 40px;text-align: center;color: #999;border-top: 1px solid #ddd;}
+        .swiper-container, .w{height: calc(100vh - 120px);}
+        .swiper-slide{height: auto;}
+
+        .text-center{text-align: center;}
+        .list-group{padding-left: 0;margin-bottom: 20px;}
+        .list-group-item{    position: relative; display: block;padding: 10px 15px;margin-bottom: -1px;background-color: #fff;border: 1px solid #ddd;}
+        .list-group-item:first-child {border-top-left-radius: 4px;border-top-right-radius: 4px;}
+    </style>
 </head>
-<body>
+<body class="padd_40">
+<div class="a">标题</div>
+<div class="tab">
+    <a class="active" href="javascript:;">tab1</a>
+    <a href="javascript:;">tab2</a>
+    <a href="javascript:;">tab3</a>
+</div>
+<div class="swiper-container">
+    <div class="refreshtip">下拉可以刷新</div>
+    <div class="swiper-wrapper w">
+        <div class="swiper-slide d">
+            <div class="init-loading list-group-item text-center" style="display: none;">下拉可以刷新</div>
+            <div class="swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide list-group">
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                    </div>
+                    <div class="swiper-slide list-group">
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                    </div>
+                    <div class="swiper-slide list-group">
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                        <div class="list-group-item">列表</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-手机号码：<input type="text" name="phone" id="phone">
-<input id="btnSendCode" type="button" value="发送验证码" onclick="sendMessage()" />
-<p id='timeshort'></p>
-
-</body>
-
+    <div class="loadtip">上拉加载更多</div>
+    <div class="swiper-scrollbar"></div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    /*-------------------------------------------*/
-    var after ='';
-    var InterValObj; //timer变量，控制时间
-    var count = 60; //间隔函数，1秒执行
-    var curCount = 60;//当前剩余秒数
-    var exp =new Date();
-    var time;
-    time = exp.getTime();
+    var loadFlag = true;
+    var oi = 0;
+    var mySwiper = new Swiper('.swiper-container',{
+        direction: 'vertical',
+        scrollbar: '.swiper-scrollbar',
+        slidesPerView: 'auto',
+        mousewheelControl: true,
+        freeMode: true,
+        onTouchMove: function(swiper){		//手动滑动中触发
+            var _viewHeight = document.getElementsByClassName('swiper-wrapper')[0].offsetHeight;
+            var _contentHeight = document.getElementsByClassName('swiper-slide')[0].offsetHeight;
 
 
+            if(mySwiper.translate < 50 && mySwiper.translate > 0) {
+                $(".init-loading").html('下拉刷新...').show();
+            }else if(mySwiper.translate > 50 ){
+                $(".init-loading").html('释放刷新...').show();
+            }
+        },
+        onTouchEnd: function(swiper) {
+            var _viewHeight = document.getElementsByClassName('swiper-wrapper')[0].offsetHeight;
+            var _contentHeight = document.getElementsByClassName('swiper-slide')[0].offsetHeight;
+            // 上拉加载
+            if(mySwiper.translate <= _viewHeight - _contentHeight - 50 && mySwiper.translate < 0) {
+                // console.log("已经到达底部！");
 
-    //获取cookie值
-    function getCookie(name){
-        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-        if(arr=document.cookie.match(reg))
-            return unescape(arr[2]);
-        else
-            return null;
-    }
+                if(loadFlag){
+                    $(".loadtip").html('正在加载...');
+                }else{
+                    $(".loadtip").html('没有更多啦！');
+                }
 
-    //这是有设定过期时间的使用示例：
-    //s20是代表20秒
-    //h是指小时，如12小时则是：h12
-    //d是天数，30天则：d30
-    //设置cookie
-    function setCookie(name,value,time){
-        var strsec = getsec(time);
-        var exp = new Date();
-        exp.setTime(exp.getTime() + strsec*1);
-        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-    }
-    function getsec(str){
-        // alert(str);
-        var str1=str.substring(1,str.length)*1;
-        var str2=str.substring(0,1);
-        if (str2=="s")
-        {
-            return str1*1000;
-        }
-        else if (str2=="h")
-        {
-            return str1*60*60*1000;
-        }
-        else if (str2=="d")
-        {
-            return str1*24*60*60*1000;
-        }
-    }
+                setTimeout(function() {
+                    for(var i = 0; i <5; i++) {
+                        oi++;
+                        $(".list-group").eq(mySwiper2.activeIndex).append('<li class="list-group-item">我是加载出来的'+oi+'...</li>');
+                    }
+                    $(".loadtip").html('上拉加载更多...');
+                    mySwiper.update(); // 重新计算高度;
+                }, 800);
+            }
 
-    function sendMessage() {
-        if(getCookie('after')>time &&  document.cookie.indexOf('after=') != -1){
-            $('#timeshort').html('请不要在60秒内重复获取验证码');
-        }else{
-            $('#timeshort').html('');
-        }
-        trySend();//调用一次
-    }
-    function trySend() {
-        if(getCookie('after')<time || document.cookie.indexOf('after=') == -1 || getCookie('after')==null){
-            //测试时先注释掉ajax请求代码，否则会不成
-            // $.ajax({
-            //     url: "你要请求的路径",
-            //     type: "get",
-            //     dataType: "json",
-            //     data: {'需要传的参数'},
-            //     success: function (data) {
-            //         if (data.code == 0) {
-            //             alert('发送成功');
-            //         } else {
-            //             alert(data.msg);
-            //         }
-            //     },
-            //     error: function () {
-            //
-            //     }
-            // });
+            // 下拉刷新
+            if(mySwiper.translate >= 50) {
+                $(".init-loading").html('正在刷新...').show();
+                $(".loadtip").html('上拉加载更多');
+                loadFlag = true;
 
-            setCookie("after",time+60*1000,"s60");
-            setCookie("phone",$('#phone').val(),"s60");
-            curCount = count;
-            //设置button效果，开始计时
-            $("#btnSendCode").attr("disabled", "true");
-            $("#btnSendCode").val(curCount + "秒后重新获取");
-            InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                setTimeout(function() {
+                    $(".refreshtip").show(0);
+                    $(".init-loading").html('刷新成功！');
+                    setTimeout(function(){
+                        $(".init-loading").html('').hide();
+                    },800);
+                    $(".loadtip").show(0);
+
+                    //刷新操作
+                    mySwiper.update(); // 重新计算高度;
+                }, 1000);
+            }else if(mySwiper.translate >= 0 && mySwiper.translate < 50){
+                $(".init-loading").html('').hide();
+            }
+            return false;
         }
-    }
-    //timer处理函数
-    function SetRemainTime() {
-        if (curCount == 0) {
-            window.clearInterval(InterValObj);//停止计时器
-            $("#btnSendCode").removeAttr("disabled");//启用按钮
-            $("#btnSendCode").val("重新发送验证码");
-            // code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
-        } else {
-            curCount--;
-            $("#btnSendCode").val(curCount + "秒后重新获取");
+    });
+    var mySwiper2 = new Swiper('.swiper-container2',{
+        onTransitionEnd: function(swiper){
+
+            $('.w').css('transform', 'translate3d(0px, 0px, 0px)')
+            $('.swiper-container2 .swiper-slide-active').css('height','auto').siblings('.swiper-slide').css('height','0px');
+            mySwiper.update();
+
+            $('.tab a').eq(mySwiper2.activeIndex).addClass('active').siblings('a').removeClass('active');
         }
-    }
+
+    });
+    $('.tab a').click(function(){
+
+        $(this).addClass('active').siblings('a').removeClass('active');
+        mySwiper2.slideTo($(this).index(), 500, false)
+
+        $('.w').css('transform', 'translate3d(0px, 0px, 0px)')
+        $('.swiper-container2 .swiper-slide-active').css('height','auto').siblings('.swiper-slide').css('height','0px');
+        mySwiper.update();
+    });
 </script>
-
 </body>
 </html>
