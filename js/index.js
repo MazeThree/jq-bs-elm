@@ -40,11 +40,41 @@ $(document).ready(function(){
 //console.log('浏览器的高度：'+$(window).height());
         totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
         if (($(document).height() - range) <= totalheight && num != maxnum) {
-            main.append("<div class='content-items'>hello world" + srollPos + "---" + num + "</div>");
-            num++;
+            loadding.loadMore();
         }
         // else{
         //     main.append("<div class='content-items'>已无更多数据</div>");
         // }
     })
+
 });
+
+
+var _content = []; //临时存储li循环内容
+var loadding = {
+    _default:3, //默认个数
+    _loading:3, //每次点击按钮后加载的个数
+    init:function(){
+        var lis = $(".content .hidedata li");
+        $(".content ul.list").html("");
+        for(var n=0;n<loadding._default;n++){
+            lis.eq(n).appendTo(".content ul.list");
+        }
+        for(var i=loadding._default;i<lis.length;i++){
+            _content.push(lis.eq(i));
+        }
+        $(".content .hidedata").html("");
+    },
+    loadMore:function(){
+        var mLis = $(".content ul.list li").length;
+        for(var i =0;i<loadding._loading;i++){
+            var target = _content.shift();
+            if(!target){
+                $('.content .more').html("<p style='color:#f00;'>已加载全部...</p>");
+                break;
+            }
+            $(".content ul.list").append(target);
+        }
+    }
+}
+loadding.init();

@@ -160,18 +160,40 @@
             <div class="flex-items">筛选<span class="glyphicon glyphicon-glass"></span></div>
         </div>
         <!--数据显示-->
-        <div id="content" class="box-content">
-            <a class="content-items" href="./home/detail.html">
-                <div class="col-xs-3 col-md-3 left">
-                    <img src="./pictures/可乐.png" alt="商家图片">
+        <div id="content" class="box-content content">
+        <div class="hiddendata">
+                    <?php
+                        require_once('php/link.php');
+                        $sql = "SELECT * FROM shop";
+                        $res=mysqli_query($conn,$sql);
+                        while($row = mysqli_fetch_array($res)){
+                            echo "<a class='content-items' href='./home/detail.php?shop_id=".$row[0]."'>";
+                            echo "<div class='col-xs-3 col-md-3'>
+                                    <img src='./pictures/可乐.png' alt='商家图片'>
+                                    </div>";
+                            echo "<div class='col-xs-9 col-md-9'>";
+                            echo "<p>".$row[1]."</p>";
+                            echo "<p><span class=' glyphicon glyphicon-star' style='color: orange'>4.6</span>&nbsp<span>月售".$row['salenum']."</span></p>";
+                            echo "<p><span>起送</span>&nbsp<span>配送</span></p>";
+                            echo "<p>111</p>";
+                            echo "</div></a>";
+                        }
+                        mysqli_close($conn);
+                    ?>
+                    <a class="content-items" href="./home/detail.html">
+                                    <div class="col-xs-3 col-md-3 left">
+                                        <img src="./pictures/可乐.png" alt="商家图片">
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 ">
+                                        <b>xxx商店</b>
+                                        <p><span class=" glyphicon glyphicon-star" style="color: orange">4.6</span>&nbsp<span>月售</span></p>
+                                        <p><span>起送</span>&nbsp<span>配送</span></p>
+                                        <p>111</p>
+                                    </div>
+                                </a>
                 </div>
-                <div class="col-xs-9 col-md-9 right">
-                    <b>xxx商店</b>
-                    <p><span class=" glyphicon glyphicon-star" style="color: orange">4.6</span>&nbsp<span>月售</span></p>
-                    <p><span>起送</span>&nbsp<span>配送</span></p>
-                    <p>111</p>
-                </div>
-            </a>
+                <ul class="list">数据加载中，请稍后...</ul>
+                <div class="more"><a href="javascript:;" onClick="loadding.loadMore();">点击加载更多</a></div>
         </div>
     </div>
 

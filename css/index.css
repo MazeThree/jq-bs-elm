@@ -136,9 +136,15 @@
 
 .box-content .content-items{
     display: block;
-    height: 10rem;
+    height: 12rem;
     padding-top: 1.5rem;
     border-bottom: 1px solid gray;
+}
+.content-items .left{
+    height: 10rem;
+}
+.content-items .right{
+    height: 12rem;
 }
 .content-items img{
     width: 100%;
@@ -173,6 +179,10 @@
 
 /*商家详情*/
 /*商家信息*/
+.tab-content{
+    padding: 0 1rem 0 0;
+    margin-bottom: 4rem;
+}
 .content .shop-message{
     height: 10rem;
     text-align: center;
