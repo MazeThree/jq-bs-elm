@@ -63,52 +63,13 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active" id="home">
             <nav id="navbar-example" class="navbar navbar-default col-xs-3 col-md-3" role="navigation" >
-    			<ul class="nav navbar-nav">
-                <?php
-                require_once('../php/link.php');
-                $shop_id=$_GET['shop_id'];
-
-                //echo $usename,$password,$tel,$email;
-
-                $sql="select * from goods_cate where shop_id= '{$shop_id}'";
-                $res=mysqli_query($conn,$sql);
-                 while($row=mysqli_fetch_assoc($res)){
-                 echo "<li><a href='#good".$row['cate_id']."'>".$row['cate_name']."</a></li>";
-                 }
-                ?>
+    			<ul class="nav navbar-nav cate_list">
+    			<!--js处理后台数据动态生成分类表-->
     			</ul>
             </nav>
-            <div class="col-xs-9 col-md-9" data-spy="scroll" data-target="#navbar-example" data-offset="0"
+            <div class="col-xs-9 col-md-9 goods_list" data-spy="scroll" data-target="#navbar-example" data-offset="0"
             	 style="height:28rem;overflow:auto; position: relative;">
-            	<h4 id="good1">111</h4>
-            	<p>
-            	dsad
-            	asda
-            	sdad
-            	adad
-            	</p>
-
-            	<h4 id="good2">222</h4>
-            	<p>
-            	内容1111111
-            	内容1111111
-            	内容1111111
-            	</p>
-
-            	<h4 id="good3">222333</h4>
-                <p>
-                内容1111111
-                内容1111111
-                内容1111111
-                </p>
-
-                <h4 id="good4">222444</h4>
-                <p>
-                内容1111111
-                内容1111111
-                内容1111111
-                </p>
-
+            	 <!--js处理后台数据动态生成商品表-->
             </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="profile">评价页面</div>
