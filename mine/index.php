@@ -85,7 +85,7 @@ if($_SESSION['usename']==""){
 <!--底部选项卡-->
 <footer class="foot-box">
     <div class="flex-items">
-        <a href="../index.html">
+        <a href="../index.php">
             <span class="glyphicon glyphicon-home"></span>
             <br>
             <span>首页</span>
@@ -99,14 +99,14 @@ if($_SESSION['usename']==""){
         </a>
     </div>
     <div class="flex-items">
-        <a href="../order/index.html">
+        <a href="../order/index.php">
             <span class="glyphicon glyphicon-list-alt"></span>
             <br>
             <span>订单</span>
         </a>
     </div>
     <div class="flex-items">
-        <a href="../mine/index.html" class="active">
+        <a href="../mine/index.php" class="active">
             <span class="glyphicon glyphicon-user"></span>
             <br>
             <span>我的</span>

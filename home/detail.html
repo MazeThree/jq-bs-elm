@@ -60,12 +60,17 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active" id="home">
-                <div>
-                    <div><img src="../pictures/可乐.png" alt=""></div>
-                    <div>
+                <div class="goods_content">
+                    <div class="goods_pic"><img src="../pictures/可乐.png" alt=""></div>
+                    <div class="goods_info">
                         <b>sasdda</b>
                         <p>月售</p>
                         <p>￥</p>
+                        <div class="shop-arithmetic">
+                            <a href="javascript:;" class="minus">-</a>
+                            <span class="num">1</span>
+                            <a href="javascript:;" class="plus">+</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,7 +86,7 @@
         <img src="../pictures/可乐.png" alt="">
         <b>￥17</b>
     </div>
-    <div class="right">右边提交价格</div>
+    <button type="submit" class="btn right" disabled="disabled">￥5元起送</button>
 </footer>
 <!--先引入jq其他才会生效-->
 <script src="../js/jquery-3.3.1.min.js"></script>

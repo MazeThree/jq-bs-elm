@@ -22,6 +22,8 @@ $result = $conn->query($sql);
 if($result->num_rows > 0){
     //登录成功
     while($row = $result->fetch_assoc()){
+    $_SESSION['user_id'] = $row['user_id'];
+    $_SESSION['address'] = $row['address'];
     $_SESSION['tel'] = $tel;
     $_SESSION['usename'] = $row['usename'];
     $_SESSION['money'] = $row['money'];

@@ -1,3 +1,6 @@
+<?php
+require_once('php/home/del_cookie.php');
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -12,7 +15,7 @@
     <meta name="description"  content="jq+bs仿制移动端elm"/>
     <meta name="author" content="吴鹏,1849630277@qqmail.com"/>
     <title>首页</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--<link rel="stylesheet"  href="css/reset.css" />-->
     <link rel="stylesheet" href="css/index.css">
@@ -20,7 +23,7 @@
     <!--公共样式-->
     <link rel="stylesheet" href="css/global.css">
 </head>
-<body  style="overflow:scroll; overflow-x:hidden;">
+<body>
 <!--搜索组件-->
 <header>
     <div class="header">
@@ -174,8 +177,8 @@
                             echo "<div class='col-xs-9 col-md-9'>";
                             echo "<p>".$row[1]."</p>";
                             echo "<p><span class=' glyphicon glyphicon-star' style='color: orange'>4.6</span>&nbsp<span>月售".$row['salenum']."</span></p>";
-                            echo "<p><span>起送</span>&nbsp<span>配送</span></p>";
-                            echo "<p>111</p>";
+                            echo "<p><span>起送￥11</span>&nbsp<span>免费配送</span></p>";
+                            echo "<p></p>";
                             echo "</div></a>";
                         }
                         mysqli_close($conn);
@@ -216,7 +219,7 @@
 <!--底部选项卡-->
 <footer class="foot-box">
     <div class="flex-items">
-        <a href="index.html" class="active">
+        <a href="index.php" class="active">
             <span class="glyphicon glyphicon-home"></span>
             <br>
             <span>首页</span>
@@ -230,7 +233,7 @@
         </a>
     </div>
     <div class="flex-items">
-        <a href="order/index.html">
+        <a href="order/index.php">
             <span class="glyphicon glyphicon-list-alt"></span>
             <br>
             <span>订单</span>

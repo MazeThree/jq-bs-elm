@@ -79,12 +79,19 @@
     </div>
 </div>
 <!--底部购物车-->
+<!--购买商品-->
+<div class="b_panel">
+      <form action="" method="post" name="shop_car">
+          <p class="clear">已购商品 <span class="glyphicon glyphicon-trash" onclick="clear()">清空</span></p>
+          <div class="goods_car"></div>
+      </form>
+</div>
 <footer class="det-foot-box">
     <div class="left">
         <img src="../pictures/可乐.png" alt="">
-        <b>￥17</b>
+        <b>￥<span id="allprice">0</span></b>
     </div>
-    <div class="right">右边提交价格</div>
+    <button type="button" class="btn right disabled">￥5起送</button>
 </footer>
 <!--先引入jq其他才会生效-->
 <script src="../js/jquery-3.3.1.min.js"></script>

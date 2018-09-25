@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1"/>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+    <meta name="format-detection" content="telephone=no,email=no,address=no"/>
+    <!--适配safari私有meta标签，允许全屏模式浏览，隐藏浏览器导航栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="keywords" content="前端工程师，湖南理工学院，计算机科学,jquery+bootstrap仿制"/>
+    <meta name="description"  content="jq+bs仿制移动端elm"/>
+    <meta name="author" content="吴鹏,1849630277@qqmail.com"/>
+    <title>订单支付</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/index.css">
+
+    <!--公共样式-->
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+<!--最上层公共头-->
+<div class="top"  onclick="javascript:history.back(-1);">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    <span id="title"></span>
+</div>
+<div id="blue" class="container">
+    <div class="order-head">
+        <p>订单配送至</p>
+        <b>sadad</b>
+        <p>水电费</p>
+    </div>
+    <div class="order-message">
+        <div><span>配送时间</span><span>尽快送达</span></div>
+        <div><span>支付方式</span><span>在线支付</span></div>
+    </div>
+    <div class="order-message">
+        <h4></h4>
+        <div class="goods_car"></div>
+        <div><span>优惠说明</span><span>小计￥25</span></div>
+    </div>
+    <div class="order-message">
+        <div><span>餐具份数</span><span>未选择</span></div>
+        <div><span>订单备注</span><span>口味、偏好</span></div>
+    </div>
+</div>
+
+<form action="../order/index.html">
+    echo "<input name='price' type='hidden' value='".$price."' />";
+    echo "<input name='name' type='hidden' value='".$name."' />";
+    echo "<input name='num' type='hidden' value='".$num."' />";
+</form>
+<footer class="det-foot-box">
+    <div class="left">
+        <b>￥<span>0</span></b>
+    </div>
+    <button type="button" class="btn right">去支付</button>
+</footer>
+<!--先引入jq其他才会生效-->
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/global.js"></script>
+
+</body>
+</html>
